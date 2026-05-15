@@ -1,17 +1,10 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
-// Import commands.js using ES2015 syntax:
-import './commands'
+Cypress.Commands.add("login", (role) => {
+  cy.fixture("users").then((users) => {
+    const user = users[role];
+    cy.visit("/login");
+    cy.get('input[name="username"]').type(user.username);
+    cy.get('input[name="password"]').type(user.password, { log: false });
+    cy.get('button[type="submit"]').click();
+    cy.url().should("match", /\/(dashboard|profile|my)/i);
+  });
+});
