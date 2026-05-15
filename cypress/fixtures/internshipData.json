@@ -1,0 +1,14 @@
+{
+  "valid": {
+    "title": "Автотест: Стажировка Frontend-разработчик",
+    "description": "Описание для проверки автотестов. Опыт не требуется.",
+    "duration": "2 месяца",
+    "location": "Удалённо"
+  },
+  "invalid": {
+    "title": "",
+    "description": "",
+    "duration": "",
+    "location": ""
+  }
+}
